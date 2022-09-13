@@ -1,0 +1,81 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".jsx", ".ts", ".tsx", ".d.ts"]
+      },
+      "typescript": {}
+    }
+  },
+  "plugins": ["react", "testing-library", "jest", "@typescript-eslint", "import", "prettier"],
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ],
+  "ignorePatterns": [".eslintrc.js", "next.config.js"],
+  "rules": {
+    "react/prop-types": 0,
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": 0,
+    "react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-indent": [2, 2],
+    "react/no-unstable-nested-components": "off",
+    // Other Config
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "assert": "either"
+      }
+    ],
+    "jsx-quotes": [2, "prefer-single"],
+    "prettier/prettier": "error",
+    "linebreak-style": "off",
+    "import/prefer-default-export": "off",
+    "no-param-reassign": "off",
+    "max-len": ["error", { "code": 140, "ignoreUrls": true }],
+    "object-curly-newline": "off",
+    // Testing Lib Config
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off",
+    "@typescript-eslint/indent": "off"
+  }
+}
